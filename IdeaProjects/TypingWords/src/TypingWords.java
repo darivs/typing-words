@@ -8,8 +8,15 @@ public class TypingWords {
     }
 
 
-    public String collidedWord() {
-        return "collided";
+    public Boolean collidedWord() {
+        Boolean s = true;
+
+        if (s)
+        {
+            s = true;
+        }
+
+        return s;
     }
 
 }

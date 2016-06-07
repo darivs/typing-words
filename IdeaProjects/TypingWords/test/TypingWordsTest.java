@@ -15,7 +15,7 @@ public class TypingWordsTest {
 
     @Test
     public void collision(){
-        String col = new TypingWords().collidedWord();
-        assertEquals("collided", col);
+        Boolean col = new TypingWords().collidedWord();
+        assertEquals(true, col);
     }
 }
