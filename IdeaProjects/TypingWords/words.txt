@@ -1,1 +1,1 @@
-Robb;Sansa;Bran;Arya;Rickon;Jon;Jaime;Cersei;Eddard;Caitlyn;Joeffrey;Tommen;Myrcella;Robert;Stannis;Renley;Melisandre;Davos;Ser;Mylady;Daenerys;Aerys;Aegon;Lyanna
+Robb;Sansa;Bran;Arya;Rickon;Jon;Jaime;Cersei;Eddard;Caitlyn;Joeffrey;Tommen;Myrcella;Robert;Stannis;Renley;Melisandre;Davos;Ser;Mylady;Daenerys;Aerys;Aegon;Lyanna;Stark;Lennister;Baratheon;Targaryen

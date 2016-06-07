@@ -1,6 +1,7 @@
 import org.junit.ComparisonFailure;
 import org.junit.Test;
 import java.io.*;
+import java.util.Scanner;
 
 import static org.junit.Assert.*;
 
@@ -38,5 +39,18 @@ public class TypingWordsTest {
     {
         Boolean col = new TypingWords().collidedWord();
         assertEquals(true, col);
+    }
+
+    @Test
+    public void chooseMenu() {
+        String c = new TypingWords().chooseMenu();
+        assert c.equals("1") || c.equals("2") || c.equals("3");
+
+        switch(c) {
+            case "1": break;
+            case "2": break;
+            case "3": break;
+            default: System.out.println("\nFalsche Eingabe!");
+        }
     }
 }
