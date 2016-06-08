@@ -47,10 +47,11 @@ public class TypingWords {
 
     public String chooseMenu() {
         Scanner sc = new Scanner(System.in);
+        String c = "1";
 
         System.out.println("\n\t= Hauptmenue =\n\t==============\n");
         System.out.println("\t(1) Spiel starten\n\t(2) Highscore\n\t(3) Spiel beenden\n\t");
-        String c = sc.next();
+        //c = sc.next();
 
         return c;
     }
