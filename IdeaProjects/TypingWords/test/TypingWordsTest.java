@@ -23,6 +23,7 @@ public class TypingWordsTest {
     public void checkData() {
         Path p = Paths.get("C:/Users/Darius/IdeaProjects/TypingWords/test/", "twords.txt");
         List<String> row = new ArrayList<>();
+        String data = "Robb;Sansa;Bran;Arya;Rickon;Jon";
 
         try {
             row = Files.readAllLines(p);
@@ -30,7 +31,7 @@ public class TypingWordsTest {
             e.printStackTrace();
         }
 
-        System.out.println(row.get(0));
+        assert row.get(0).equals(data);
     }
 
     /*@Test
