@@ -27,7 +27,7 @@ public class Main {
             e.printStackTrace();
         }
 
-        c = "2";
+        //c = "2";
 
         switch(c) {
             case "1": msg = "starting...";      break;
