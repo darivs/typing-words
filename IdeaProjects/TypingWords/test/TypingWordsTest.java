@@ -1,6 +1,5 @@
 import org.junit.ComparisonFailure;
 import org.junit.Test;
-import java.util.Scanner;
 import java.io.*;
 
 import static org.junit.Assert.*;
@@ -14,15 +13,17 @@ public class TypingWordsTest {
 
     @Test
     public void chooseMenu() {
-        String c = Main.decide();
+        String c = Main.decide(), msg = "\n\tfalse entry!\n";
         assert c.equals("1") || c.equals("2") || c.equals("3");
 
         switch(c) {
-            case "1": break;
-            case "2": break;
-            case "3": break;
-            default: System.out.println("\nFalsche Eingabe!");
+            case "1": msg = "\n\tstarting...\n";      break;
+            case "2": msg = "\n\tloading list...\n";  break;
+            case "3": msg = "\n\tclosing...\n";       break;
+            default:                                  break;
         }
+
+        System.out.println(msg);
     }
 
     @Test
@@ -45,7 +46,7 @@ public class TypingWordsTest {
             } catch (ComparisonFailure e) { }
         }
 
-        System.out.println(rndWord);
+        System.out.println("random word:\t" + rndWord);
     }
 
     @Test
