@@ -9,24 +9,6 @@ import static org.junit.Assert.*;
 public class TypingWordsTest {
 
     @Test
-    public void startUp(){ Main.main(null); }
-
-    @Test
-    public void chooseMenu() {
-        String c = Main.decide(), msg = "\n\tfalse entry!\n";
-        assert c.equals("1") || c.equals("2") || c.equals("3");
-
-        switch(c) {
-            case "1": msg = "\n\tstarting...\n";      break;
-            case "2": msg = "\n\tloading list...\n";  break;
-            case "3": msg = "\n\tclosing...\n";       break;
-            default:                                  break;
-        }
-
-        System.out.println(msg);
-    }
-
-    @Test
     public void getWord() throws FileNotFoundException {
         String row = new String();
         String rndWord = new TypingWords().declareWord();
@@ -47,6 +29,24 @@ public class TypingWordsTest {
         }
 
         System.out.println("random word:\t" + rndWord);
+    }
+
+    @Test
+    public void startUp(){ Main.main(null); }
+
+    @Test
+    public void chooseMenu() {
+        String c = Main.decide(), msg = "false entry!";
+        assert c.equals("1") || c.equals("2") || c.equals("3");
+
+        switch(c) {
+            case "1": msg = "starting...";      break;
+            case "2": msg = "loading list...";  break;
+            case "3": msg = "closing...";       break;
+            default:                            break;
+        }
+
+        System.out.println("\n\t" + msg + "\n");
     }
 
     @Test

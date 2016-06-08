@@ -3,7 +3,6 @@ import java.util.Scanner;
 // Created by Darius on 06.06.2016.
 
 public class Main {
-    public static int i;
 
     public static void main(String[] args) {
         System.out.println("\n\t= Menue =\n\t=========\n");
@@ -12,14 +11,13 @@ public class Main {
         decide();
     }
 
-    public static String decide(){
+    public static String decide() {
         Scanner sc = new Scanner(System.in);
 
-        String c = sc.nextLine() /*"2"*/;
-        sc.close();
+        String c = sc.nextLine();
+        //String c = "2";
 
-        i++;
-        System.out.println("in dec:\t\t\t" + i);
+        sc.close();
 
         return c;
     }
