@@ -4,6 +4,14 @@ import java.util.concurrent.ThreadLocalRandom;
 public class TypingWords {
     String[] words;
 
+
+    public String[] splitString(String row) {
+        String[] x = row.split(";");
+
+        return x;
+    }
+
+
     public String declareWord() {
         String w = new String();
 
@@ -12,22 +20,25 @@ public class TypingWords {
             String row = br.readLine();
 
             if (row != null) {
-                words = row.split(";");
+                words = splitString(row);
             }
 
             int r = ThreadLocalRandom.current().nextInt(0, words.length - 1);
             w = words[r];
-
-        } catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e)
+        {
             e.printStackTrace();
-        } catch (IOException e) {
+        } catch (IOException e)
+        {
             e.printStackTrace();
-        } catch (NullPointerException e) {
+        } catch (NullPointerException e)
+        {
             e.printStackTrace();
         }
         return w;
     }
 
+    /*
     public Boolean collidedWord() {
         Boolean col = true;
 
@@ -38,7 +49,7 @@ public class TypingWords {
         return col;
     }
 
-    /*public String chosenMenu(String chosen) {
+    public String chosenMenu(String chosen) {
         String c = chosen;
         System.out.println(c);
         return c;

@@ -1,52 +1,42 @@
-import org.junit.ComparisonFailure;
 import org.junit.Test;
 import java.io.*;
-
-import static org.junit.Assert.*;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
+import java.nio.file.Files;
 
 // Created by Darius on 06.06.2016.
 
 public class TypingWordsTest {
 
     @Test
-    public void getWord() throws FileNotFoundException {
-        String row = new String();
-        String rndWord = new TypingWords().declareWord();
+    public void splitRow() {
+        String testdaten = "Arya;Robb;Jon";
+
+        String[] words = new TypingWords().splitString(testdaten);
+
+        assert words[0].equals("Arya") && words[1].equals("Robb") && words[2].equals("Jon");
+    }
+
+    @Test
+    public void checkData() {
+        Path p = Paths.get("C:/Users/Darius/IdeaProjects/TypingWords/test/", "twords.txt");
+        List<String> row = new ArrayList<>();
 
         try {
-            BufferedReader br = new BufferedReader(new FileReader("words.txt"));
-            row = br.readLine();
+            row = Files.readAllLines(p);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        String[] expected = row.split(";");
-
-        for (int i = 0; i <= expected.length - 1; i++) {
-            try {
-                assertEquals(expected[i], rndWord);
-            } catch (ComparisonFailure e) { }
-        }
-
-        System.out.println("random word:\t" + rndWord);
+        System.out.println(row.get(0));
     }
 
-    @Test
-    public void startUp(){ Main.main(null); }
-
-    @Test
+    /*@Test
     public void chooseMenu() {
-        String c = Main.decide(), msg = "false entry!";
+        String c = Main.decide();
         assert c.equals("1") || c.equals("2") || c.equals("3");
-
-        switch(c) {
-            case "1": msg = "starting...";      break;
-            case "2": msg = "loading list...";  break;
-            case "3": msg = "closing...";       break;
-            default:                            break;
-        }
-
-        System.out.println("\n\t" + msg + "\n");
     }
 
     @Test
@@ -54,5 +44,5 @@ public class TypingWordsTest {
     {
         Boolean col = new TypingWords().collidedWord();
         assertEquals(true, col);
-    }
+    }*/
 }
