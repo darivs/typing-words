@@ -1,15 +1,29 @@
 import org.junit.ComparisonFailure;
 import org.junit.Test;
-import java.io.*;
 import java.util.Scanner;
+import java.io.*;
 
 import static org.junit.Assert.*;
 
-/**
- * Created by Darius on 06.06.2016.
- */
+// Created by Darius on 06.06.2016.
 
 public class TypingWordsTest {
+
+    @Test
+    public void startUp(){ Main.main(null); }
+
+    @Test
+    public void chooseMenu() {
+        String c = Main.decide();
+        assert c.equals("1") || c.equals("2") || c.equals("3");
+
+        switch(c) {
+            case "1": break;
+            case "2": break;
+            case "3": break;
+            default: System.out.println("\nFalsche Eingabe!");
+        }
+    }
 
     @Test
     public void getWord() throws FileNotFoundException {
@@ -39,18 +53,5 @@ public class TypingWordsTest {
     {
         Boolean col = new TypingWords().collidedWord();
         assertEquals(true, col);
-    }
-
-    @Test
-    public void chooseMenu() {
-        String c = new TypingWords().chooseMenu();
-        assert c.equals("1") || c.equals("2") || c.equals("3");
-
-        switch(c) {
-            case "1": break;
-            case "2": break;
-            case "3": break;
-            default: System.out.println("\nFalsche Eingabe!");
-        }
     }
 }

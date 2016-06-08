@@ -2,10 +2,6 @@ import java.io.*;
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
-/**
- * Created by Darius on 06.06.2016.
- */
-
 public class TypingWords {
     String[] words;
 
@@ -21,7 +17,7 @@ public class TypingWords {
             }
 
             int r = ThreadLocalRandom.current().nextInt(0, words.length - 1);
-            w =  words[r];
+            w = words[r];
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -33,26 +29,20 @@ public class TypingWords {
         return w;
     }
 
-
     public Boolean collidedWord() {
-        Boolean s = true;
+        Boolean col = true;
 
-        if (s)
-        {
-            s = true;
+        if (col) {
+            col = true;
         }
 
-        return s;
+        return col;
     }
 
-    public String chooseMenu() {
-        Scanner sc = new Scanner(System.in);
-        String c = "1";
-
-        System.out.println("\n\t= Hauptmenue =\n\t==============\n");
-        System.out.println("\t(1) Spiel starten\n\t(2) Highscore\n\t(3) Spiel beenden\n\t");
-        //c = sc.next();
-
+    /*public String chosenMenu(String chosen) {
+        String c = chosen;
+        System.out.println(c);
         return c;
-    }
+    }*/
 }
+
