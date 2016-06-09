@@ -1,21 +1,29 @@
+import org.junit.Assert;
 import org.junit.Test;
 import java.io.*;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.nio.file.Files;
+import static org.junit.Assert.*;
+import static org.hamcrest.CoreMatchers.*;
 
 // Created by Darius on 06.06.2016.
 
 public class TypingWordsTest {
 
     @Test
-    public void splitRow() {
+    public void splitRowAtSimicolon() {
         String testdaten = "Arya;Robb;Jon";
         String[] words = new TypingWords().splitString(testdaten);
 
-        assert words[0].equals("Arya") && words[1].equals("Robb") && words[2].equals("Jon");
+        //assertThat(words[0], is(equalTo("Arya")));
+        //assertThat(words[1], is(equalTo("Robb")));
+        //assertThat(words[2], is(equalTo("Jon")));
+
+        assertThat(Arrays.asList(words), hasItems("Arya", "Robb", "Jon"));
+
     }
 
     @Test
@@ -30,7 +38,14 @@ public class TypingWordsTest {
             e.printStackTrace();
         }
 
-        assert row.get(0).equals(testdaten);
+        assertThat(row.get(0), is(equalTo(testdaten)));
+    }
+
+    @Test
+    public void declareWordlistWhenOnlyOneRow() throws FileNotFoundException {
+        int c = new TypingWords().countLinesInFile("test/twords.txt");
+
+        assertThat(c, is(1));
     }
 
     /*@Test

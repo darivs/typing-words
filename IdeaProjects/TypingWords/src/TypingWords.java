@@ -29,7 +29,9 @@ public class TypingWords {
         try {
             Path p = getPath("C:/Users/Darius/IdeaProjects/TypingWords/", "words.txt");
             List<String> l = Files.readAllLines(p);
-            String row =  l.get(0);
+            String row = "";
+
+            if (countLinesInFile("words.txt") == 1) { row =  l.get(0); }
 
             if (row != null) {
                 words = splitString(row);
@@ -46,6 +48,16 @@ public class TypingWords {
         }
 
         return w;
+    }
+
+    public int countLinesInFile(String f) throws FileNotFoundException {
+        int c;
+
+        LineNumberReader lnr = new LineNumberReader(new FileReader(f));
+        try { lnr.skip(Long.MAX_VALUE); } catch (IOException e) {e.printStackTrace();}
+        c = lnr.getLineNumber() + 1;
+
+        return c;
     }
 
     /*
