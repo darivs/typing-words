@@ -1,24 +1,27 @@
+import java.awt.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
+import java.util.Timer;
 
 // Created by Darius on 06.06.2016.
 
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println("\n\t= Menue =\n\t=========\n");
+        //Timer timer = new Timer();
+
+        System.out.println("\n\tMenue\n\t=====\n");
         System.out.println("\t(1) Start\n\t(2) Highscore\n\t(3) Exit\n\t");
 
-        String rndWord = new TypingWords().declareWord();
-        System.out.println("random word:\t" + rndWord);
+        //timer.schedule(new Draw(), 0, 5000);
 
         decide();
+
     }
 
     public static String decide() {
-        String c = "", msg = "false entry!";
+        String c = "";
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         try {
@@ -27,17 +30,22 @@ public class Main {
             e.printStackTrace();
         }
 
-        //c = "2";
-
         switch(c) {
-            case "1": msg = "starting...";      break;
-            case "2": msg = "loading list...";  break;
-            case "3": msg = "closing...";       break;
-            default:                            break;
+            case "1": try {start();} catch (IOException e) {e.printStackTrace();} break;
+            case "2": System.out.println("\n\tloading list...\n"); break;
+            case "3": System.out.println("\n\tclosing...\n"); System.exit(0); break;
+            default: System.out.println("false entry!"); break;
         }
 
-        System.out.println("\n\t" + msg + "\n");
-
         return c;
+    }
+
+    public static void start() throws IOException {
+        clearScreen();
+        System.out.println("your word: " + new TypingWords().declareWord());
+    }
+
+    public static void clearScreen() {
+        for (int i = 0; i < 10; i++) { System.out.println(); }
     }
 }

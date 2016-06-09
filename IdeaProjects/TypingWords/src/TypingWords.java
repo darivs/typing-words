@@ -1,4 +1,9 @@
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.InvalidPathException;
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class TypingWords {
@@ -11,13 +16,20 @@ public class TypingWords {
         return x;
     }
 
+    public Path getPath (String path, String name) throws InvalidPathException {
+        Path p = Paths.get(path, name);
+
+        return p;
+    }
+
 
     public String declareWord() {
         String w = new String();
 
         try {
-            BufferedReader br = new BufferedReader(new FileReader("words.txt"));
-            String row = br.readLine();
+            Path p = getPath("C:/Users/Darius/IdeaProjects/TypingWords/", "words.txt");
+            List<String> l = Files.readAllLines(p);
+            String row =  l.get(0);
 
             if (row != null) {
                 words = splitString(row);
@@ -31,10 +43,8 @@ public class TypingWords {
         } catch (IOException e)
         {
             e.printStackTrace();
-        } catch (NullPointerException e)
-        {
-            e.printStackTrace();
         }
+
         return w;
     }
 

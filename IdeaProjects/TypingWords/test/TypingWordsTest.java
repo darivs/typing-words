@@ -13,7 +13,6 @@ public class TypingWordsTest {
     @Test
     public void splitRow() {
         String testdaten = "Arya;Robb;Jon";
-
         String[] words = new TypingWords().splitString(testdaten);
 
         assert words[0].equals("Arya") && words[1].equals("Robb") && words[2].equals("Jon");
@@ -21,9 +20,9 @@ public class TypingWordsTest {
 
     @Test
     public void checkData() {
-        Path p = Paths.get("C:/Users/Darius/IdeaProjects/TypingWords/test/", "twords.txt");
+        Path p = new TypingWords().getPath("C:/Users/Darius/IdeaProjects/TypingWords/test/", "twords.txt");
         List<String> row = new ArrayList<>();
-        String data = "Robb;Sansa;Bran;Arya;Rickon;Jon";
+        String testdaten = "Robb;Sansa;Bran;Arya;Rickon;Jon";
 
         try {
             row = Files.readAllLines(p);
@@ -31,7 +30,9 @@ public class TypingWordsTest {
             e.printStackTrace();
         }
 
-        assert row.get(0).equals(data);
+        new TypingWords().declareWord();
+
+        assert row.get(0).equals(testdaten);
     }
 
     /*@Test
