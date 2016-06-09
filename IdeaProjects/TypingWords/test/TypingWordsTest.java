@@ -21,7 +21,7 @@ public class TypingWordsTest {
     @Test
     public void splitRowAtSimicolon() {
         String testdaten = "Robb;Sansa;Bran";
-        String[] words = new TypingWords().splitString(testdaten);
+        String[] words = new TypingWords().splitString(testdaten, ";");
 
         assertThat(Arrays.asList(words), hasItems("Robb", "Sansa", "Bran"));
     }

@@ -1,8 +1,8 @@
-import java.awt.*;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Timer;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.Collections;
+import java.util.List;
 
 // Created by Darius on 06.06.2016.
 
@@ -22,7 +22,7 @@ public class Main {
 
         switch(c) {
             case "1": try { start(); } catch (IOException e) { e.printStackTrace(); } break;
-            case "2": loadList(); break;
+            case "2": try { loadList(); } catch (IOException e) { e.printStackTrace(); } break;
             case "3": exit(); break;
             default: System.out.println("false entry!"); break;
         }
@@ -35,13 +35,16 @@ public class Main {
         System.out.println("rnd word: " + new TypingWords().declareWord());
     }
 
-    public static void loadList() { /* highscore */ }
+    public static void loadList() throws IOException {
+        Path p = new TypingWords().getPath("C:/Users/Darius/IdeaProjects/TypingWords/", "scorelist.txt");
+        List<String> l = Files.readAllLines(p);
+    }
 
     public static void exit() {
         System.exit(0);
     }
 
     public static void clearScreen() {
-        for (int i = 0; i < 10; i++) { System.out.println(); }
+        for (int i = 0; i < 15; i++) { System.out.print("\n"); }
     }
 }
