@@ -1,4 +1,6 @@
-import org.junit.Assert;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import java.io.*;
 import java.nio.file.Path;
@@ -13,30 +15,24 @@ import static org.hamcrest.CoreMatchers.*;
 
 public class TypingWordsTest {
 
+    @Before
+    public void initValues() { /* declare and initialize pub values */ }
+
     @Test
     public void splitRowAtSimicolon() {
-        String testdaten = "Arya;Robb;Jon";
+        String testdaten = "Robb;Sansa;Bran";
         String[] words = new TypingWords().splitString(testdaten);
 
-        //assertThat(words[0], is(equalTo("Arya")));
-        //assertThat(words[1], is(equalTo("Robb")));
-        //assertThat(words[2], is(equalTo("Jon")));
-
-        assertThat(Arrays.asList(words), hasItems("Arya", "Robb", "Jon"));
-
+        assertThat(Arrays.asList(words), hasItems("Robb", "Sansa", "Bran"));
     }
 
     @Test
-    public void checkData() {
+    public void checkDataIfEqual() {
         Path p = new TypingWords().getPath("C:/Users/Darius/IdeaProjects/TypingWords/test/", "twords.txt");
         List<String> row = new ArrayList<>();
         String testdaten = "Robb;Sansa;Bran;Arya;Rickon;Jon";
 
-        try {
-            row = Files.readAllLines(p);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        try { row = Files.readAllLines(p); } catch (IOException e) { e.printStackTrace(); }
 
         assertThat(row.get(0), is(equalTo(testdaten)));
     }
@@ -48,16 +44,23 @@ public class TypingWordsTest {
         assertThat(c, is(1));
     }
 
-    /*@Test
-    public void chooseMenu() {
-        String c = Main.decide();
-        assert c.equals("1") || c.equals("2") || c.equals("3");
+    @Test
+    public void getRandomValueBetweenArrayLength() {
+        String[] testdaten = new String[5];
+        int r = new TypingWords().getRandomInteger(testdaten);
+
+        assertThat(r <= testdaten.length -1, is(true));
     }
 
+    @Ignore
     @Test
-    public void collision()
-    {
+    public void disappearWordIfCollided() {
         Boolean col = new TypingWords().collidedWord();
-        assertEquals(true, col);
-    }*/
+        assertThat(col, is(true));
+
+        // let the word disappear
+    }
+
+    @After
+    public void cleanUp() { /* clean the pub values */ }
 }
