@@ -30,8 +30,6 @@ public class TypingWordsTest {
             e.printStackTrace();
         }
 
-        new TypingWords().declareWord();
-
         assert row.get(0).equals(testdaten);
     }
 

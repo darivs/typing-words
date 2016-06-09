@@ -32,8 +32,8 @@ public class Main {
 
         switch(c) {
             case "1": try {start();} catch (IOException e) {e.printStackTrace();} break;
-            case "2": System.out.println("\n\tloading list...\n"); break;
-            case "3": System.out.println("\n\tclosing...\n"); System.exit(0); break;
+            case "2": loadList(); break;
+            case "3": exit(); break;
             default: System.out.println("false entry!"); break;
         }
 
@@ -43,6 +43,14 @@ public class Main {
     public static void start() throws IOException {
         clearScreen();
         System.out.println("your word: " + new TypingWords().declareWord());
+    }
+
+    public static void loadList() {
+        // highscore
+    }
+
+    public static void exit() {
+        System.exit(0);
     }
 
     public static void clearScreen() {
