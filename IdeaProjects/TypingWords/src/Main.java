@@ -1,17 +1,68 @@
+import javax.swing.*;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Collections;
 import java.util.List;
+import java.util.TimerTask;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.Timer;
 
 // Created by Darius on 06.06.2016.
 
-public class Main {
+
+public class Main extends JFrame {
+
+    int xpos = 0, ypos = 0, xvel = 0, yvel = 0;
+
+    private static final long serialVersionUID = 1L;
 
     public static void main(String[] args) {
-        System.out.println("\n\tMenue\n\t=====\n\t(1) Start\n\t(2) Highscore\n\t(3) Exit\n\t");
 
-        decide();
+        SwingUtilities .invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                showFrame();
+            }
+        });
+
+        //new Menue().menue();
+    }
+
+    private static void showFrame() {
+        Main mainFrame = new Main();
+        mainFrame.setVisible(true);
+    }
+
+    public Main() {
+        super("Typing Words");
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        createContent();
+        setBounds(50,50,400,200);
+    }
+
+    private void createContent() {
+        JPanel content = new JPanel();
+
+        /*
+        Timer t = new Timer().start();
+
+        t.schedule(new TimerTask() {
+        @Override
+        public void run() {
+        */content.add(new JLabel(new TypingWords().declareWord()));/*
+        }
+        }, 0, 1000);
+        */
+
+        setContentPane(content);
+    }
+
+    @Override
+    public void dispose() {
+         super.dispose();
+        System.out.println("Valar Morghulis");
     }
 
     public static String decide() {
@@ -19,13 +70,6 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         try { c = br.readLine(); } catch (IOException e) { e.printStackTrace(); }
-
-        switch(c) {
-            case "1": try { start(); } catch (IOException e) { e.printStackTrace(); } break;
-            case "2": try { loadList(); } catch (IOException e) { e.printStackTrace(); } break;
-            case "3": exit(); break;
-            default: System.out.println("false entry!"); break;
-        }
 
         return c;
     }

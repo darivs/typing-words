@@ -52,14 +52,14 @@ public class TypingWordsTest {
         assertThat(r <= testdaten.length -1, is(true));
     }
 
-    @Ignore
+    /*@Ignore
     @Test
     public void disappearWordIfCollided() {
         Boolean col = new TypingWords().collidedWord();
         assertThat(col, is(true));
 
         // let the word disappear
-    }
+    }*/
 
     @After
     public void cleanUp() { /* clean the pub values */ }

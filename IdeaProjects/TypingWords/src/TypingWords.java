@@ -9,7 +9,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class TypingWords { String[] words;
 
     public String[] splitString(String row, String c) {
-        String[] x = row.split("c");
+        String[] x = row.split(c);
 
         return x;
     }
@@ -53,10 +53,10 @@ public class TypingWords { String[] words;
         return r;
     }
 
-    public Boolean collidedWord() {
+    /*public Boolean collidedWord() {
         Boolean col = true;
 
         return col;
-    }
+    }*/
 }
 
