@@ -25,7 +25,7 @@ public class Main extends JPanel {
     }
 
     public static void loadList() throws IOException {
-        Path p = new TypingWords().getPath("C:/Users/Darius/IdeaProjects/TypingWords/", "scorelist.txt");
+        Path p = new DataManaging().getPath("C:/Users/Darius/IdeaProjects/TypingWords/", "scorelist.txt");
         List<String> l = Files.readAllLines(p);
     }
 
