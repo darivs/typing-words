@@ -1,82 +1,27 @@
 import javax.swing.*;
+import java.awt.*;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
-import java.util.TimerTask;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.Timer;
+import java.util.concurrent.ThreadLocalRandom;
 
 // Created by Darius on 06.06.2016.
 
+public class Main extends JPanel {
+    JFrame game = new JFrame("Typing-Words");
+    public static String str = "Viel Spaß!";
 
-public class Main extends JFrame {
+    int xPos = 0, yPos = 75, ms = 3;
 
-    int xpos = 0, ypos = 0, xvel = 0, yvel = 0;
+    public static void main(String[] args) { new Menue().menue(); }
 
-    private static final long serialVersionUID = 1L;
-
-    public static void main(String[] args) {
-
-        SwingUtilities .invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                showFrame();
-            }
-        });
-
-        //new Menue().menue();
-    }
-
-    private static void showFrame() {
-        Main mainFrame = new Main();
-        mainFrame.setVisible(true);
-    }
-
-    public Main() {
-        super("Typing Words");
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        createContent();
-        setBounds(50,50,400,200);
-    }
-
-    private void createContent() {
-        JPanel content = new JPanel();
-
-        /*
-        Timer t = new Timer().start();
-
-        t.schedule(new TimerTask() {
-        @Override
-        public void run() {
-        */content.add(new JLabel(new TypingWords().declareWord()));/*
-        }
-        }, 0, 1000);
-        */
-
-        setContentPane(content);
-    }
-
-    @Override
-    public void dispose() {
-         super.dispose();
-        System.out.println("Valar Morghulis");
-    }
-
-    public static String decide() {
-        String c = "";
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
-        try { c = br.readLine(); } catch (IOException e) { e.printStackTrace(); }
-
-        return c;
-    }
-
-    public static void start() throws IOException {
-        clearScreen();
-        System.out.println("rnd word: " + new TypingWords().declareWord());
+    public void start() throws IOException {
+        game.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        game.getContentPane().setBackground(Color.BLACK);
+        game.setSize(400, 200);
+        game.add(new Main());
+        game.setVisible(true);
     }
 
     public static void loadList() throws IOException {
@@ -88,7 +33,23 @@ public class Main extends JFrame {
         System.exit(0);
     }
 
-    public static void clearScreen() {
-        for (int i = 0; i < 15; i++) { System.out.print("\n"); }
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        Graphics2D g2 = (Graphics2D)g;
+        g2.setColor(Color.BLACK);
+        g2.setFont(new Font("Times Roman", Font.PLAIN, 20));
+
+        try { Thread.sleep(ms); } catch (InterruptedException e) { e.printStackTrace(); }
+        xPos += 1;
+
+        if (xPos >= this.getWidth()) {
+            xPos = -15;
+            yPos = ThreadLocalRandom.current().nextInt(15, 155);
+            try { str = new TypingWords().declareWord(); } catch (FileNotFoundException e) { e.printStackTrace(); }
+        }
+
+        g2.drawString(str, xPos, yPos);
+
+        repaint();
     }
 }

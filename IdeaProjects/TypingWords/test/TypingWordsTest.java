@@ -1,10 +1,9 @@
-import org.junit.After;
-import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.AfterClass;
 import org.junit.Ignore;
 import org.junit.Test;
 import java.io.*;
 import java.nio.file.Path;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.nio.file.Files;
@@ -14,42 +13,47 @@ import static org.hamcrest.CoreMatchers.*;
 // Created by Darius on 06.06.2016.
 
 public class TypingWordsTest {
+    private static Path p;
+    private static List<String> row;
+    private static String testdata;
+    private static String[] testArray;
 
-    @Before
-    public void initValues() { /* declare and initialize pub values */ }
+    @BeforeClass
+    public static void initValues() { /* initialize pub values */
+        p = new TypingWords().getPath("C:/Users/Darius/IdeaProjects/TypingWords/test/", "twords.txt");
+        try { row = Files.readAllLines(p); } catch (IOException e) { e.printStackTrace(); }
+        testdata = row.get(0);
+        testArray = new String[] { };
+    }
 
     @Test
     public void splitRowAtSimicolon() {
-        String testdaten = "Robb;Sansa;Bran";
-        String[] words = new TypingWords().splitString(testdaten, ";");
+        testArray = new TypingWords().splitString(testdata, ";");
 
-        assertThat(Arrays.asList(words), hasItems("Robb", "Sansa", "Bran"));
+        assertThat(Arrays.asList(testArray), hasItems("Robb", "Sansa", "Bran"));
     }
 
     @Test
-    public void checkDataIfEqual() {
-        Path p = new TypingWords().getPath("C:/Users/Darius/IdeaProjects/TypingWords/test/", "twords.txt");
-        List<String> row = new ArrayList<>();
-        String testdaten = "Robb;Sansa;Bran;Arya;Rickon;Jon";
+    public void declareWordWhenItsValid() throws FileNotFoundException {
+        splitRowAtSimicolon();
 
-        try { row = Files.readAllLines(p); } catch (IOException e) { e.printStackTrace(); }
-
-        assertThat(row.get(0), is(equalTo(testdaten)));
+        assertThat(Arrays.asList(testArray), hasItem(new TypingWords().declareWord()));
     }
 
     @Test
-    public void declareWordlistWhenOnlyOneRow() throws FileNotFoundException {
-        int c = new TypingWords().countLinesInFile("test/twords.txt");
+    public void declareWordFilesWhenOnlyOneRow() throws FileNotFoundException {
+        int f1 = new TypingWords().countLinesInFile("test/twords.txt");
+        int f2 = new TypingWords().countLinesInFile("words.txt");
 
-        assertThat(c, is(1));
+        assertThat(f1, is(equalTo(1)));
+        assertThat(f2, is(equalTo(f1)));
     }
 
     @Test
     public void getRandomValueBetweenArrayLength() {
-        String[] testdaten = new String[5];
-        int r = new TypingWords().getRandomInteger(testdaten);
+        int r = new TypingWords().getRandomInteger(6);
 
-        assertThat(r <= testdaten.length -1, is(true));
+        assertThat(r <= 5, is(true));
     }
 
     /*@Ignore
@@ -61,6 +65,6 @@ public class TypingWordsTest {
         // let the word disappear
     }*/
 
-    @After
-    public void cleanUp() { /* clean the pub values */ }
+    @AfterClass
+    public static void cleanUp() { /* clean the pub values */ }
 }

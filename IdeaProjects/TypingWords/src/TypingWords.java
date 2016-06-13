@@ -3,10 +3,20 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.InvalidPathException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class TypingWords { String[] words;
+public class TypingWords implements Comparator<String> {
+
+    protected List<String> words = new ArrayList<>();
+    //public boolean did;       //value for sorting only once
+
+    public int compare(String s1, String s2) {
+        return Integer.compare(s1.length(), s2.length());
+    }
 
     public String[] splitString(String row, String c) {
         String[] x = row.split(c);
@@ -20,21 +30,35 @@ public class TypingWords { String[] words;
         return p;
     }
 
-    public String declareWord() {
-        String w = new String();
+    public String declareWord() throws FileNotFoundException {
+        declareList();
+        String w = words.get(getRandomInteger(words.size()));
 
-        try { String row = "";
+        return w;
+    }
+
+    public void declareList() {
+        try {
+            String row = "";
             Path p = getPath("C:/Users/Darius/IdeaProjects/TypingWords/", "words.txt");
             List<String> l = Files.readAllLines(p);
 
             if (countLinesInFile("words.txt") == 1) { row =  l.get(0); }
-            if (row != null) { words = splitString(row, ";"); }
+            if (row != null) {
+                String[] array = splitString(row, ";");
 
-            w = words[getRandomInteger(words)];
-        } catch (FileNotFoundException e) { e.printStackTrace();
+                for (int i = 0; i <= array.length - 1; i++) {
+                    words.add(i, array[i]);
+                }
+            }
+            sortList();
         } catch (IOException e) { e.printStackTrace(); }
+    }
 
-        return w;
+    public void sortList() {
+        //System.out.println(words);                    // unsorted
+        Collections.sort(words, new TypingWords());
+        //System.out.println(words);                    // sorted
     }
 
     public int countLinesInFile(String f) throws FileNotFoundException {
@@ -47,8 +71,8 @@ public class TypingWords { String[] words;
         return c;
     }
 
-    public int getRandomInteger(String[] w) {
-        int r = ThreadLocalRandom.current().nextInt(0, w.length -1);
+    public int getRandomInteger(int size) {
+        int r = ThreadLocalRandom.current().nextInt(0, size - 1);
 
         return r;
     }
