@@ -12,7 +12,7 @@ public class Main extends JPanel {
     JFrame game = new JFrame("Typing-Words");
     public static String str = "Viel Spaß!";
 
-    int xPos = 0, yPos = 75, ms = 3;
+    int xPos = 0, yPos = 75, ms = 5;
 
     public static void main(String[] args) { new Menue().menue(); }
 
@@ -25,7 +25,7 @@ public class Main extends JPanel {
     }
 
     public static void loadList() throws IOException {
-        Path p = new DataManaging().getPath("C:/Users/Darius/IdeaProjects/TypingWords/", "scorelist.txt");
+        Path p = new FileManager().getPath("C:/Users/Darius/IdeaProjects/TypingWords/", "scorelist.txt");
         List<String> l = Files.readAllLines(p);
     }
 
@@ -45,7 +45,7 @@ public class Main extends JPanel {
         if (xPos >= this.getWidth()) {
             xPos = -15;
             yPos = ThreadLocalRandom.current().nextInt(15, 155);
-            try { str = new TypingWords().declareWord(); } catch (FileNotFoundException e) { e.printStackTrace(); }
+            try { str = new WordList().declareWord(); } catch (FileNotFoundException e) { e.printStackTrace(); }
         }
 
         g2.drawString(str, xPos, yPos);
