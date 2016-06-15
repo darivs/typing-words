@@ -17,6 +17,8 @@ public class WordListTest {
     public static List<String> row;
     public static String[] testArray;
     private static String testdata;
+    private WordList wl = new WordList();
+    private FileManager fm = new FileManager();
 
     @BeforeClass
     public static void initValues() { /* initialize pub values */
@@ -27,31 +29,37 @@ public class WordListTest {
     }
 
     @Test
-    public void declareWordWhenItsValid() throws FileNotFoundException {
-        splitRowAtSimicolon();
+    public void sortListWhenFirstEntryGotFewestCapitals() throws FileNotFoundException {
+        List<String> tList = wl.declareList();
+        wl.sortList(tList);
 
-        assertThat(Arrays.asList(testArray), hasItem(new WordList().declareWord()));
+        assertThat(tList.get(0), is("Jon"));
     }
 
     @Test
-    public void declareWordFilesWhenOnlyOneRow() throws FileNotFoundException {
-        int f1 = new FileManager().countLinesInFile("test/twords.txt");
-        int f2 = new FileManager().countLinesInFile("words.txt");
+    public void declareWordWhenItsValid() throws FileNotFoundException {
+        splitRowAtSimicolon();
 
-        assertThat(f1, is(equalTo(1)));
-        assertThat(f2, is(equalTo(f1)));
+        assertThat(Arrays.asList(testArray), hasItem(wl.declareWord()));
+    }
+
+    @Test
+    public void mapListWhenNotNull() throws FileNotFoundException {
+        wl.mapList(wl.sortList(wl.declareList()));
+
+        assertThat(fm.getList(), is(not("")));
     }
 
     @Test
     public void splitRowAtSimicolon() {
-        testArray = new WordList().splitString(testdata, ";");
+        testArray = wl.splitString(testdata, ";");
 
         assertThat(Arrays.asList(testArray), hasItems("Robb", "Sansa", "Bran"));
     }
 
     @Test
     public void getRandomValueBetweenArrayLength() {
-        int r = new WordList().getRandomInteger(6);
+        int r = wl.getRandomInteger(6);
 
         assertThat(r <= 5, is(true));
     }

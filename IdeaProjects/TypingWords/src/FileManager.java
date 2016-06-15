@@ -6,14 +6,10 @@ import java.nio.file.InvalidPathException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
-public class FileManager implements Comparator<String> {
+public class FileManager {
 
-    public int compare(String s1, String s2) {
-        return Integer.compare(s1.length(), s2.length());
-    }
 
     public List<String> getList() throws FileNotFoundException {
         List<String> l = new ArrayList<>();

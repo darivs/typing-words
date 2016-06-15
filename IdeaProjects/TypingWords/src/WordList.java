@@ -1,18 +1,21 @@
-import java.awt.*;
+import java.util.Comparator;
 import java.io.*;
 import java.util.*;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class WordList {
+public class WordList implements Comparator<String> {
+
+    public int compare(String s1, String s2) {
+        return Integer.compare(s1.length(), s2.length());
+    }
+
     private List<String> words = new ArrayList<>();
-    private FileManager fM = new FileManager();
 
     public List<String> declareList() throws FileNotFoundException {
         List<String> k = new ArrayList<>();
-        String row = fM.getList().get(0);
+        String row = new FileManager().getList().get(0);
 
-        //if (dM.countLinesInFile("words.txt") == 1)
         if (row != null) {
             String[] array = splitString(row, ";");
 
@@ -21,17 +24,14 @@ public class WordList {
             }
         }
 
-        sortList(k);
         return k;
     }
 
     public List<String> sortList(List<String> n) {
-
         //System.out.println(n);                    // unsorted
-        Collections.sort(n, fM);
-        System.out.println(n);                    // sorted
+        Collections.sort(n, new WordList());
+        //System.out.println(n);                    // sorted
 
-        mapList(n);
         return n;
     }
 
@@ -39,30 +39,24 @@ public class WordList {
         HashMap<Integer, List<String>> m = new HashMap<>();
         ListIterator lt = o.listIterator();
 
-        List<String> lng = new ArrayList<>();
+        List<String> values = new ArrayList<>();
 
         for (int i = o.get(0).length(); i <= o.get(o.size() - 1).length(); i++) { // i = 3; i <= 10
-            lng.clear();
+            values.clear();
             for (int j = 0; j <= o.size()- 1; j++) {
                 if (lt.hasNext()) {
-                    //if (lt.next().toString().length() == i) {
                     if (o.get(j).length() == i) {
-                        lng.add(o.get(j));
-                    } else if (o.get(j).length() >= i) {
-                        break;
-                    }
-                    //}
+                        values.add(o.get(j));
+                    } else if (o.get(j).length() >= i) break;
                 }
             }
+            List<String> copy = new ArrayList<>();
 
-            System.out.println(lng);
-            List<String> w = lng;
-
-            m.put(i, w);
-
-            System.out.println(m);
-            System.out.println(i);
+            copy.addAll(values);
+            m.put(i, copy);
         }
+
+        System.out.println(m);
         return m;
     }
 

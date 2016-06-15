@@ -24,10 +24,10 @@ public class Main extends JPanel {
         game.setVisible(true);
     }
 
-    public static void loadList() throws IOException {
+    /*public static void loadList() throws IOException {
         Path p = new FileManager().getPath("C:/Users/Darius/IdeaProjects/TypingWords/", "scorelist.txt");
         List<String> l = Files.readAllLines(p);
-    }
+    }*/
 
     public static void exit() {
         System.exit(0);
