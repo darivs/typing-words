@@ -45,7 +45,7 @@ public class Main extends JPanel {
         if (xPos >= this.getWidth()) {
             xPos = -15;
             yPos = ThreadLocalRandom.current().nextInt(15, 155);
-            try { str = new WordList().declareWord(); } catch (FileNotFoundException e) { e.printStackTrace(); }
+            try { str = new WordManager().declareWord(); } catch (FileNotFoundException e) { e.printStackTrace(); }
         }
 
         g2.drawString(str, xPos, yPos);

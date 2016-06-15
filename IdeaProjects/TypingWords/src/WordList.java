@@ -2,15 +2,12 @@ import java.util.Comparator;
 import java.io.*;
 import java.util.*;
 import java.util.List;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class WordList implements Comparator<String> {
 
     public int compare(String s1, String s2) {
         return Integer.compare(s1.length(), s2.length());
     }
-
-    private List<String> words = new ArrayList<>();
 
     public List<String> declareList() throws FileNotFoundException {
         List<String> k = new ArrayList<>();
@@ -58,19 +55,6 @@ public class WordList implements Comparator<String> {
 
         System.out.println(m);
         return m;
-    }
-
-    public String declareWord() throws FileNotFoundException {
-        words = declareList();
-        String w = words.get(getRandomInteger(words.size()));
-
-        return w;
-    }
-
-    public int getRandomInteger(int size) {
-        int r = ThreadLocalRandom.current().nextInt(0, size - 1);
-
-        return r;
     }
 
     public String[] splitString(String row, String c) {
