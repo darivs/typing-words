@@ -3,7 +3,6 @@ package typewords.data;
 import org.junit.BeforeClass;
 import org.junit.AfterClass;
 import org.junit.Test;
-import typewords.data.FileManager;
 
 import java.io.*;
 import java.nio.file.Path;
@@ -24,7 +23,7 @@ public class FileManagerTest {
 
     @BeforeClass
     public static void initValues() { /* initialize pub values */
-        p = new FileManager().getPath("C:/Users/Darius/IdeaProjects/TypingWords/test/", "twords.txt");
+        p = new FileManager().getPath("C:/Users/Darius/IdeaProjects/TypingWords/test/", "typewords/data/twords.txt");
         try { row = Files.readAllLines(p); } catch (IOException e) { e.printStackTrace(); }
     }
 

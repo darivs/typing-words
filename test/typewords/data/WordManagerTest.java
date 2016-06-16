@@ -3,9 +3,6 @@ package typewords.data;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import typewords.data.FileManager;
-import typewords.data.WordList;
-import typewords.data.WordManager;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -31,7 +28,7 @@ public class WordManagerTest {
     public static void initValues() { /* initialize pub values */
         testArray = new String[] { };
 
-        p = new FileManager().getPath("C:/Users/Darius/IdeaProjects/TypingWords/test/", "twords.txt");
+        p = new FileManager().getPath("C:/Users/Darius/IdeaProjects/TypingWords/test/", "typewords/data/twords.txt");
         try { row = Files.readAllLines(p); } catch (IOException e) { e.printStackTrace(); }
 
         testdata = row.get(0);
