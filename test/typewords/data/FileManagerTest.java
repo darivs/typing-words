@@ -1,13 +1,14 @@
 package typewords.data;
 
-import org.junit.BeforeClass;
 import org.junit.AfterClass;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
-import java.io.*;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
-import java.nio.file.Files;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
@@ -23,13 +24,13 @@ public class FileManagerTest {
 
     @BeforeClass
     public static void initValues() { /* initialize pub values */
-        p = new FileManager().getPath("C:/Users/Darius/IdeaProjects/TypingWords/test/", "typewords/data/twords.txt");
+        p = new FileManager().getPath("C:/workspace/typing-words/", "test/typewords/data/twords.txt");
         try { row = Files.readAllLines(p); } catch (IOException e) { e.printStackTrace(); }
     }
 
     @Test
     public void declareWordFilesWhenOnlyOneRow() throws FileNotFoundException {
-        int f1 = fm.countLinesInFile("test/twords.txt");
+        int f1 = fm.countLinesInFile("test/typewords/data/twords.txt");
         int f2 = fm.countLinesInFile("words.txt");
 
         assertThat(f1, is(equalTo(1)));

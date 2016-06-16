@@ -28,7 +28,7 @@ public class WordManagerTest {
     public static void initValues() { /* initialize pub values */
         testArray = new String[] { };
 
-        p = new FileManager().getPath("C:/Users/Darius/IdeaProjects/TypingWords/test/", "typewords/data/twords.txt");
+        p = new FileManager().getPath("C:/workspace/typing-words/", "test/typewords/data/twords.txt");
         try { row = Files.readAllLines(p); } catch (IOException e) { e.printStackTrace(); }
 
         testdata = row.get(0);
