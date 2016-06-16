@@ -16,7 +16,7 @@ public class FileManager {
     public List<String> getList() throws FileNotFoundException {
         List<String> l = new ArrayList<>();
         try {
-            Path p = getPath("C:/Users/Darius/IdeaProjects/TypingWords/", "words.txt");
+            Path p = getPath("C:/workspace/typing-words", "words.txt");
             l = Files.readAllLines(p);
         } catch (IOException e) { e.printStackTrace(); }
 

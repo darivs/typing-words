@@ -5,7 +5,7 @@ import java.util.Comparator;
 import java.util.*;
 import java.util.List;
 
-public class WordList implements Comparator<String> {
+public class WordList implements Comparator<String>, IWordList {
 
     public int compare(String s1, String s2) {
         return Integer.compare(s1.length(), s2.length());
