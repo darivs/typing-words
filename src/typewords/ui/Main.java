@@ -1,9 +1,10 @@
+package typewords.ui;
+
+import typewords.data.WordManager;
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 // Created by Darius on 06.06.2016.
@@ -25,7 +26,7 @@ public class Main extends JPanel {
     }
 
     /*public static void loadList() throws IOException {
-        Path p = new FileManager().getPath("C:/Users/Darius/IdeaProjects/TypingWords/", "scorelist.txt");
+        Path p = new typewords.data.FileManager().getPath("C:/Users/Darius/IdeaProjects/TypingWords/", "scorelist.txt");
         List<String> l = Files.readAllLines(p);
     }*/
 

@@ -1,6 +1,9 @@
+package typewords.data;
+
 import org.junit.BeforeClass;
 import org.junit.AfterClass;
 import org.junit.Test;
+import typewords.data.FileManager;
 
 import java.io.*;
 import java.nio.file.Path;

@@ -1,10 +1,12 @@
+package typewords.data;
+
 import org.junit.BeforeClass;
 import org.junit.AfterClass;
 import org.junit.Test;
+import typewords.data.FileManager;
+import typewords.data.WordList;
+
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.Assert.*;

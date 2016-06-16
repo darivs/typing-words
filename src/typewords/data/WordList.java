@@ -1,5 +1,7 @@
-import java.util.Comparator;
+package typewords.data;
+
 import java.io.*;
+import java.util.Comparator;
 import java.util.*;
 import java.util.List;
 

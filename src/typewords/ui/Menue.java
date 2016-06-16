@@ -1,10 +1,12 @@
+package typewords.ui;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import javax.swing.*;
 
 public class Menue extends JPanel {
-    JFrame menue = new JFrame("Menue");
+    JFrame menue = new JFrame("typewords.ui.Menue");
     JPanel panel = new JPanel();
 
     JButton btStart = new JButton("Start");
@@ -47,9 +49,9 @@ public class Menue extends JPanel {
     /* console-ui
     public String whatToDo(String c) {
         switch(c) {
-            case "1": try { new Main().start(); } catch (IOException e) { e.printStackTrace(); } break;
-            case "2": try { new Main().loadList(); } catch (IOException e) { e.printStackTrace(); } break;
-            case "3": new Main().exit(); break;
+            case "1": try { new typewords.ui.Main().start(); } catch (IOException e) { e.printStackTrace(); } break;
+            case "2": try { new typewords.ui.Main().loadList(); } catch (IOException e) { e.printStackTrace(); } break;
+            case "3": new typewords.ui.Main().exit(); break;
             default: System.out.println("false entry!"); break;
         }
 

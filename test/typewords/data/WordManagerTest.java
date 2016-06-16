@@ -1,6 +1,11 @@
+package typewords.data;
+
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
+import typewords.data.FileManager;
+import typewords.data.WordList;
+import typewords.data.WordManager;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
