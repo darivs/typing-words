@@ -1,18 +1,15 @@
 package typewords.data;
 
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class WordManager {
+public class WordManager implements WordInterface {
 
     private List<String> words = new ArrayList<>();
-    private WordList wl = new WordList();
 
-
-    public String declareWord() throws FileNotFoundException {
-        words = wl.declareList();
+    public String declareWord() throws DataException {
+        words = new WordList().declareList();
         String w = words.get(getRandomInteger(words.size()));
 
         return w;

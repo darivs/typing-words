@@ -4,16 +4,14 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.hasItem;
-import static org.hamcrest.CoreMatchers.hasItems;
-import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.*;
 import static org.junit.Assert.assertThat;
 
 public class WordManagerTest {
@@ -25,18 +23,15 @@ public class WordManagerTest {
     private static Path p;
 
     @BeforeClass
-    public static void initValues() { /* initialize pub values */
-        testArray = new String[] { };
-
-        p = new FileManager().getPath("C:/workspace/typing-words/", "test/typewords/data/twords.txt");
-        try { row = Files.readAllLines(p); } catch (IOException e) { e.printStackTrace(); }
-
+    public static void initValues() throws Exception { /* initialize pub values */
+        URL resource = WordManagerTest.class.getClassLoader().getResource("typewords/data/twords.txt");
+        row = Files.readAllLines(Paths.get(resource.toURI()));
         testdata = row.get(0);
     }
 
     @Test
-    public void declareWordWhenItsValid() throws FileNotFoundException {
-        splitRowAtSimicolon();
+    public void declareWordWhenItsValid() throws Exception {
+        splitRowAtSimicolonWhenRightValue();
 
         assertThat(Arrays.asList(testArray), hasItem(wM.declareWord()));
     }
@@ -49,7 +44,7 @@ public class WordManagerTest {
     }
 
     @Test
-    public void splitRowAtSimicolon() {
+    public void splitRowAtSimicolonWhenRightValue() {
         testArray = wL.splitString(testdata, ";");
 
         assertThat(Arrays.asList(testArray), hasItems("Robb", "Sansa", "Bran"));

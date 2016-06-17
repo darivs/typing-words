@@ -2,11 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="18f11782-5907-4df6-aadc-cc83a803929c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/typewords/data/IWordList.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/typewords/data/DataException.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/test/typing-words/typewords/data/FileManagerTest.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test/typewords/data/FileManagerTest.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/typewords/data/IWordList.java" afterPath="$PROJECT_DIR$/src/typewords/data/WordInterface.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/words.txt" afterPath="$PROJECT_DIR$/src/typewords/words.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/typing-words/typewords/data/FileManager.class" afterPath="$PROJECT_DIR$/out/production/typing-words/typewords/data/FileManager.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/typing-words/typewords/data/WordList.class" afterPath="$PROJECT_DIR$/out/production/typing-words/typewords/data/WordList.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/typing-words/typewords/data/WordManager.class" afterPath="$PROJECT_DIR$/out/production/typing-words/typewords/data/WordManager.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/typing-words/typewords/ui/Main.class" afterPath="$PROJECT_DIR$/out/production/typing-words/typewords/ui/Main.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/typing-words/typewords/data/WordListTest.class" afterPath="$PROJECT_DIR$/out/test/typing-words/typewords/data/WordListTest.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/test/typing-words/typewords/data/WordManagerTest.class" afterPath="$PROJECT_DIR$/out/test/typing-words/typewords/data/WordManagerTest.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/Darius.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/Darius.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/typewords/data/FileManager.java" afterPath="$PROJECT_DIR$/src/typewords/data/FileManager.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/typewords/data/WordList.java" afterPath="$PROJECT_DIR$/src/typewords/data/WordList.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/typewords/data/WordManager.java" afterPath="$PROJECT_DIR$/src/typewords/data/WordManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/typewords/ui/Main.java" afterPath="$PROJECT_DIR$/src/typewords/ui/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/typewords/data/WordListTest.java" afterPath="$PROJECT_DIR$/test/typewords/data/WordListTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/typewords/data/WordManagerTest.java" afterPath="$PROJECT_DIR$/test/typewords/data/WordManagerTest.java" />
     </list>
     <ignored path="typing-words.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -19,7 +33,10 @@
   </component>
   <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/typing-words$All_in_typing_words.coverage" NAME="All in typing-words Coverage Results" MODIFIED="1466079789660" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/typing-words$All_in_typing_words.coverage" NAME="All in typing-words Coverage Results" MODIFIED="1466164081195" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/typing-words$typewords_in_typing_words.coverage" NAME="typewords in typing-words Coverage Results" MODIFIED="1466170367212" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>typewords.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/typing-words$typewords_data_in_typing_words.coverage" NAME="typewords.data in typing-words Coverage Results" MODIFIED="1466084192794" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>typewords.data.*</FILTER>
     </SUITE>
@@ -36,14 +53,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="IWordList.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/typewords/data/IWordList.java">
+      <file leaf-file-name="WordInterface.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/typewords/data/WordInterface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="36" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="102">
+              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -51,29 +66,56 @@
       <file leaf-file-name="WordManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/typewords/data/WordManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+            <state relative-caret-position="221">
+              <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="FileManager.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/typewords/ui/Main.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="22" column="32" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
+              <folding>
+                <element signature="e#511#512#0" expanded="true" />
+                <element signature="e#559#560#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Menue.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/typewords/ui/Menue.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="595">
+              <caret line="38" column="31" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WordManagerTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/typewords/data/WordManagerTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="443">
+              <caret line="40" column="17" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FileManager.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/typewords/data/FileManager.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="170">
-              <caret line="18" column="71" selection-start-line="18" selection-start-column="71" selection-end-line="18" selection-end-column="71" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WordList.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/typewords/data/WordList.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="28" column="24" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="24" />
-              <folding />
+              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -84,6 +126,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -100,13 +143,17 @@
       <list>
         <option value="$PROJECT_DIR$/src/WordList.java" />
         <option value="$PROJECT_DIR$/src/typewords/ui/Menue.java" />
-        <option value="$PROJECT_DIR$/test/typewords/data/FileManagerTest.java" />
-        <option value="$PROJECT_DIR$/test/typewords/data/WordManagerTest.java" />
-        <option value="$PROJECT_DIR$/src/typewords/data/WordList.java" />
-        <option value="$PROJECT_DIR$/src/typewords/data/WordManager.java" />
-        <option value="$PROJECT_DIR$/src/typewords/data/FileManager.java" />
         <option value="$PROJECT_DIR$/src/typewords/data/IWords.java" />
         <option value="$PROJECT_DIR$/src/typewords/data/IWordList.java" />
+        <option value="$PROJECT_DIR$/test/typewords/data/FileManagerTest.java" />
+        <option value="$PROJECT_DIR$/src/typewords/data/DataException.java" />
+        <option value="$PROJECT_DIR$/src/typewords/data/WordManager.java" />
+        <option value="$PROJECT_DIR$/test/typewords/data/WordManagerTest.java" />
+        <option value="$PROJECT_DIR$/src/typewords/data/WordList.java" />
+        <option value="$PROJECT_DIR$/test/typewords/data/WordListTest.java" />
+        <option value="$PROJECT_DIR$/src/typewords/ui/Main.java" />
+        <option value="$PROJECT_DIR$/src/typewords/data/WordInterface.java" />
+        <option value="$PROJECT_DIR$/src/typewords/data/FileManager.java" />
       </list>
     </option>
   </component>
@@ -141,7 +188,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -189,11 +235,15 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value="test" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="typewords" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -214,14 +264,55 @@
               <option name="myItemId" value="typewords" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="typing-words" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="typing-words" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="out" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="typing-words" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="typewords" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="typing-words" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="typing-words" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="out" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -242,36 +333,11 @@
       <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\workspace\typing-words\src\typewords" />
       <recent name="C:\workspace\typing-words\test\typewords\data" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.typewords.data in typing-words">
-    <configuration default="false" name="WordListTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="typewords.data.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="typing-words" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="typewords.data" />
-      <option name="MAIN_CLASS_NAME" value="typewords.data.WordListTest" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="JUnit.typewords in typing-words">
     <configuration default="false" name="WordManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -319,17 +385,17 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="typewords.data in typing-words" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="typewords in typing-words" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="typewords.data.*" />
+          <option name="PATTERN" value="typewords.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <module name="typing-words" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="typewords.data" />
+      <option name="PACKAGE_NAME" value="typewords" />
       <option name="MAIN_CLASS_NAME" />
       <option name="METHOD_NAME" />
       <option name="TEST_OBJECT" value="package" />
@@ -345,20 +411,40 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="typewords in typing-words" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
-          <option name="PATTERN" value="typewords.*" />
+          <option name="PATTERN" value="typewords.ui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="typewords.ui.Main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="typing-words" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="WordListTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="typewords.data.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <module name="typing-words" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="typewords" />
-      <option name="MAIN_CLASS_NAME" />
+      <option name="PACKAGE_NAME" value="typewords.data" />
+      <option name="MAIN_CLASS_NAME" value="typewords.data.WordListTest" />
       <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="package" />
+      <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -606,24 +692,27 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.WordListTest" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.WordManagerTest" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.All in typing-words" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.typewords.data in typing-words" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.typewords in typing-words" />
+      <item index="0" class="java.lang.String" itemvalue="JUnit.WordManagerTest" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.All in typing-words" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.typewords in typing-words" />
+      <item index="3" class="java.lang.String" itemvalue="Application.Main" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.WordListTest" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.typewords.data in typing-words" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.typewords in typing-words" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.All in typing-words" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.WordManagerTest" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.WordListTest" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.typewords in typing-words" />
+        <item index="1" class="java.lang.String" itemvalue="Application.Main" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.WordManagerTest" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.WordListTest" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.All in typing-words" />
       </list>
     </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -636,34 +725,34 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_typing-words - 2016.06.16 at 14h 23m 05s.xml">
-      <configuration name="All in typing-words" configurationId="JUnit" />
+    <history-entry file="WordListTest - 2016.06.17 at 15h 03m 20s.xml">
+      <configuration name="WordListTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_typing-words - 2016.06.16 at 14h 23m 11s.xml">
-      <configuration name="All in typing-words" configurationId="JUnit" />
+    <history-entry file="WordListTest - 2016.06.17 at 15h 22m 42s.xml">
+      <configuration name="WordListTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="All_in_typing-words - 2016.06.16 at 14h 31m 54s.xml">
-      <configuration name="All in typing-words" configurationId="JUnit" />
+    <history-entry file="WordListTest - 2016.06.17 at 15h 24m 54s.xml">
+      <configuration name="WordListTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="WordManagerTest - 2016.06.16 at 14h 22m 31s.xml">
+    <history-entry file="WordListTest - 2016.06.17 at 15h 25m 23s.xml">
+      <configuration name="WordListTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="WordManagerTest - 2016.06.17 at 14h 59m 33s.xml">
       <configuration name="WordManagerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="typewords_data_in_typing-words - 2016.06.16 at 14h 34m 20s.xml">
-      <configuration name="typewords.data in typing-words" configurationId="JUnit" />
+    <history-entry file="WordManagerTest - 2016.06.17 at 15h 00m 18s.xml">
+      <configuration name="WordManagerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="typewords_data_in_typing-words - 2016.06.16 at 15h 36m 07s.xml">
-      <configuration name="typewords.data in typing-words" configurationId="JUnit" />
+    <history-entry file="WordManagerTest - 2016.06.17 at 15h 00m 39s.xml">
+      <configuration name="WordManagerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="typewords_data_in_typing-words - 2016.06.16 at 15h 36m 11s.xml">
-      <configuration name="typewords.data in typing-words" configurationId="JUnit" />
+    <history-entry file="WordManagerTest - 2016.06.17 at 15h 25m 40s.xml">
+      <configuration name="WordManagerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="typewords_data_in_typing-words - 2016.06.16 at 15h 36m 30s.xml">
-      <configuration name="typewords.data in typing-words" configurationId="JUnit" />
+    <history-entry file="typewords_in_typing-words - 2016.06.17 at 15h 20m 21s.xml">
+      <configuration name="typewords in typing-words" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="typewords_data_in_typing-words - 2016.06.16 at 15h 36m 34s.xml">
-      <configuration name="typewords.data in typing-words" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="typewords_in_typing-words - 2016.06.16 at 15h 35m 32s.xml">
+    <history-entry file="typewords_in_typing-words - 2016.06.17 at 15h 32m 48s.xml">
       <configuration name="typewords in typing-words" configurationId="JUnit" />
     </history-entry>
   </component>
@@ -688,30 +777,40 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29144096" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5535168" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26868907" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5585185" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2489339" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.4464832" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.44148147" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="antWorkspaceConfiguration">
@@ -719,6 +818,42 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/typewords/data/WordInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/typewords/data/WordManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/typewords/data/FileManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="18" column="71" selection-start-line="18" selection-start-column="71" selection-end-line="18" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/typewords/data/WordList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="28" column="24" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/test/typewords/data/WordListTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -739,7 +874,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -783,52 +920,103 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/typewords/ui/Menue.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_91/src.zip!/java/util/Comparator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        <state relative-caret-position="401">
+          <caret line="272" column="43" selection-start-line="272" selection-start-column="43" selection-end-line="272" selection-end-column="43" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/typewords/ui/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/typewords/words.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/typewords/data/WordListTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/typewords/data/FileManagerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="102" />
+        <state relative-caret-position="149">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="29" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/typewords/data/DataException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
           <folding>
-            <element signature="imports" expanded="false" />
+            <element signature="e#146#147#0" expanded="true" />
+            <element signature="e#170#171#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/typewords/data/WordList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/typewords/data/WordListTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding>
+            <element signature="e#419#420#0" expanded="true" />
+            <element signature="e#475#476#0" expanded="true" />
+            <element signature="e#1037#1038#0" expanded="true" />
+            <element signature="e#1076#1077#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/typewords/data/WordManagerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="27" column="65" selection-start-line="27" selection-start-column="65" selection-end-line="27" selection-end-column="65" />
+        <state relative-caret-position="443">
+          <caret line="40" column="17" selection-start-line="40" selection-start-column="17" selection-end-line="40" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/typewords/ui/Menue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="38" column="31" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/typewords/ui/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="22" column="32" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
+          <folding>
+            <element signature="e#511#512#0" expanded="true" />
+            <element signature="e#559#560#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/typewords/data/WordInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/typewords/data/WordManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+        <state relative-caret-position="221">
+          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -836,23 +1024,7 @@
     <entry file="file://$PROJECT_DIR$/src/typewords/data/FileManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
-          <caret line="18" column="71" selection-start-line="18" selection-start-column="71" selection-end-line="18" selection-end-column="71" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/typewords/data/WordList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="28" column="24" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/typewords/data/IWordList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="36" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

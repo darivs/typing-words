@@ -1,41 +1,48 @@
 package typewords.data;
 
-import org.junit.BeforeClass;
-import org.junit.AfterClass;
+import org.junit.Before;
 import org.junit.Test;
-import typewords.data.FileManager;
-import typewords.data.WordList;
 
-import java.io.*;
+import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
+import static org.junit.Assert.assertThat;
 
 // Created by Darius on 06.06.2016.
 
 public class WordListTest {
-    private WordList wl = new WordList();
-    private FileManager fm = new FileManager();
 
-    @BeforeClass
-    public static void initValues() { /* initialize pub values */ }
+    private WordList wl;
+    private List<String> testList;
+
+    @Before
+    public void setup() {
+        wl = new WordList(new FileManagerMock());
+    }
 
     @Test
-    public void sortListWhenFirstEntryGotFewestCapitals() throws FileNotFoundException {
+    public void sortListWhenFirstEntryGotFewestCapitals() throws Exception {
+        testList = Arrays.asList("Johnny;Jon;John");
+
         List<String> tList = wl.declareList();
-        wl.sortList(tList);
 
         assertThat(tList.get(0), is("Jon"));
     }
 
     @Test
-    public void mapListWhenNotNull() throws FileNotFoundException {
-        wl.mapList(wl.sortList(wl.declareList()));
+    public void mapListWhenNotNull() throws Exception {
+        testList = Arrays.asList("Johnny;Jon;John");
 
-        assertThat(fm.getList(), is(not("")));
+        wl.mapList(wl.declareList());
+
+        assertThat(new FileManagerMock().getList(), is(not("")));
     }
 
-    @AfterClass
-    public static void cleanUp() { /* clean the pub values */ }
+    class FileManagerMock extends FileManager {
+        public List<String> getList() {
+            return testList;
+        }
+    }
 }

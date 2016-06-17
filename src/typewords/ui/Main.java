@@ -1,10 +1,12 @@
 package typewords.ui;
 
+import typewords.data.DataException;
+import typewords.data.WordInterface;
 import typewords.data.WordManager;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.*;
+import java.io.IOException;
 import java.util.concurrent.ThreadLocalRandom;
 
 // Created by Darius on 06.06.2016.
@@ -14,6 +16,12 @@ public class Main extends JPanel {
     public static String str = "Viel Spaß!";
 
     int xPos = 0, yPos = 75, ms = 5;
+
+    private WordInterface wordProvider;
+
+    public Main() {
+        wordProvider = new WordManager();
+    }
 
     public static void main(String[] args) { new Menue().menue(); }
 
@@ -46,7 +54,7 @@ public class Main extends JPanel {
         if (xPos >= this.getWidth()) {
             xPos = -15;
             yPos = ThreadLocalRandom.current().nextInt(15, 155);
-            try { str = new WordManager().declareWord(); } catch (FileNotFoundException e) { e.printStackTrace(); }
+            try { str = wordProvider.declareWord(); } catch (DataException e) { e.printStackTrace(); }
         }
 
         g2.drawString(str, xPos, yPos);

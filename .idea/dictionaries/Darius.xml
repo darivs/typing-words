@@ -2,6 +2,7 @@
   <dictionary name="Darius">
     <words>
       <w>typewords</w>
+      <w>wordmanager</w>
     </words>
   </dictionary>
 </component>
