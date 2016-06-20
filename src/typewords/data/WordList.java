@@ -3,12 +3,11 @@ package typewords.data;
 import java.util.*;
 
 public class WordList implements Comparator<String> {
+    private FileManager fm;
 
     public int compare(String s1, String s2) {
         return Integer.compare(s1.length(), s2.length());
     }
-
-    private FileManager fm;
 
     public WordList() {
         fm = new FileManager();
@@ -48,7 +47,7 @@ public class WordList implements Comparator<String> {
         for (int i = o.get(0).length(); i <= o.get(o.size() - 1).length(); i++) { // i = 3; i <= 10
             values.clear();
 
-            for (int j = 0; j <= o.size()- 1; j++) {
+            for (int j = 0; j <= o.size() - 1; j++) {
                 if (lt.hasNext()) {
                     if (o.get(j).length() == i) {
                         values.add(o.get(j));
@@ -56,9 +55,11 @@ public class WordList implements Comparator<String> {
                 }
             }
             List<String> copy = new ArrayList<>();
-
             copy.addAll(values);
-            m.put(i, copy);
+
+            if (copy.size() != 0) {
+                m.put(i, copy);
+            }
         }
 
         System.out.println(m);

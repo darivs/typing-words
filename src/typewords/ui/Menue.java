@@ -1,9 +1,9 @@
 package typewords.ui;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import javax.swing.*;
 
 public class Menue extends JPanel {
     JFrame menue = new JFrame("typewords.ui.Menue");
@@ -14,9 +14,7 @@ public class Menue extends JPanel {
     JButton btExit = new JButton("Exit");
 
     public void menue() {
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {btEvent();}
-        });
+        SwingUtilities.invokeLater(this::btEvent);
     }
 
     public void btEvent() {
@@ -36,7 +34,7 @@ public class Menue extends JPanel {
     class StartGame implements ActionListener {
         public void actionPerformed (ActionEvent e) {
             menue.setVisible(false);
-            try { new Main().start(); } catch (IOException e1) { e1.printStackTrace(); }
+            try { new Game().startGame(); } catch (IOException e1) { e1.printStackTrace(); }
         }
     }
 
@@ -45,16 +43,4 @@ public class Menue extends JPanel {
             new Main().exit();
         }
     }
-
-    /* console-ui
-    public String whatToDo(String c) {
-        switch(c) {
-            case "1": try { new typewords.ui.Main().start(); } catch (IOException e) { e.printStackTrace(); } break;
-            case "2": try { new typewords.ui.Main().loadList(); } catch (IOException e) { e.printStackTrace(); } break;
-            case "3": new typewords.ui.Main().exit(); break;
-            default: System.out.println("false entry!"); break;
-        }
-
-        return c;
-    }*/
 }
