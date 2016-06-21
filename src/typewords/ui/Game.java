@@ -12,9 +12,16 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Game extends JPanel{
 
     JFrame game = new JFrame("Typing-Words");
-    JTextField jf;
 
-    public String str = "Valar Morghulis";
+    public int points = 0, lives = 10;
+
+    JPanel subPanel = new JPanel();
+    JTextField jf = new JTextField("Hi", 42);
+    JLabel jPoints = new JLabel("Points: " + points);
+    JLabel jLives = new JLabel("Lives: " + lives);
+
+    public String  str = "boo";
+
     private WordInterface wordProvider;
     int xPos = -50, yPos = 75, ms = 4;
 
@@ -27,13 +34,22 @@ public class Game extends JPanel{
     public void startGame() throws IOException {
         game.add(new Game());
 
-        jf = new JTextField("Valar Dohaeris", 1);
-        game.getContentPane().add(BorderLayout.SOUTH, jf);
+        jPoints.setBackground(Color.GREEN);
+        jLives.setBackground(Color.RED);
+        jPoints.setOpaque(true);
+        jLives.setOpaque(true);
+
+        subPanel.add(jf, 0);
+        subPanel.add(jPoints, 1);
+        subPanel.add(jLives, 2);
+        subPanel.setBorder(BorderFactory.createLineBorder(Color.black));
+        game.getContentPane().add(BorderLayout.PAGE_END, subPanel);
 
         game.pack();
         game.setVisible(true);
 
         System.out.println(jf.getText());
+        System.out.println(jPoints.getText());
 
         jf.addKeyListener(new KeyEventListener());
     }
@@ -49,6 +65,10 @@ public class Game extends JPanel{
         xPos += 1;
 
         if (xPos >= this.getWidth()) {
+            lives-=1;
+            jLives.setText("Lives: " + lives);
+            System.out.println(jLives.getText());
+
             xPos = -50;
             yPos = ThreadLocalRandom.current().nextInt(25, 240);
             try {

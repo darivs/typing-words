@@ -4,6 +4,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class KeyEventListener implements KeyListener {
+    String word;
 
     @Override
     public void keyTyped(KeyEvent e) { }
@@ -16,12 +17,16 @@ public class KeyEventListener implements KeyListener {
         getKey(e);
     }
 
+
     private void getKey(KeyEvent released) {
         char k = released.getKeyChar();
         System.out.println(released.getKeyChar());
+        word = new Game().str;
 
-        if(new Game().str.charAt(1) == k) {System.out.println("hi");}
+        System.out.println(word);
+
+        if(word.charAt(0) == k) {System.out.println("First char released");}
+        if(word.charAt(1) == k) {System.out.println("Second char released");}
         // str is static - need better solution
-
     }
 }
