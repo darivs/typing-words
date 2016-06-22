@@ -5,10 +5,10 @@ import java.awt.event.KeyListener;
 
 public class KeyEventListener implements KeyListener { //no function atm
     String word;
-    private Game gameObj;
+    private GameUI gameUIObj;
 
-    public KeyEventListener(Game givenObj) {
-        gameObj = givenObj;
+    public KeyEventListener(GameUI givenObj) {
+        gameUIObj = givenObj;
     }
 
     @Override
@@ -26,12 +26,12 @@ public class KeyEventListener implements KeyListener { //no function atm
     private void getKey(KeyEvent released) {
         char k = released.getKeyChar();
         System.out.println(released.getKeyChar());
-        word = gameObj.getCurrentWord();
+        word = gameUIObj.getCurrentWord();
 
         System.out.println(word);
 
         if(word.charAt(0) == k) {System.out.println("First char released");}
-        if(word.charAt(1) == k) {System.out.println("Second char released");}
+        if(word.charAt(1) ==k) {System.out.println("Second char released");}
         // currentWord is static - need better solution
     }
 }

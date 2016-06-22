@@ -34,7 +34,7 @@ public class Menue extends JPanel {
     class StartGame implements ActionListener {
         public void actionPerformed (ActionEvent e) {
             menue.setVisible(false);
-            try { new Game().startGame(); } catch (IOException e1) { e1.printStackTrace(); }
+            try { new GameUI().startGame(); } catch (IOException e1) { e1.printStackTrace(); }
         }
     }
 
