@@ -6,8 +6,6 @@ import typewords.data.WordManager;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.io.IOException;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -16,14 +14,14 @@ public class Game extends JPanel{
     JFrame game = new JFrame("Typing-Words");
 
     public int points = 0, lives = 10;
-    public Game test;
+    public Game thisGame;
 
     JPanel subPanel = new JPanel();
     JTextField jf = new JTextField("Hello", 42);
     JLabel jPoints = new JLabel("Points: " + points);
     JLabel jLives = new JLabel("Lives: " + lives);
 
-    public String  str = "boo";
+    public String currentWord = "boo";
 
     private WordInterface wordProvider;
     int xPos = -50, yPos = 75, ms = 4;
@@ -35,8 +33,8 @@ public class Game extends JPanel{
     }
 
     public void startGame() throws IOException {
-        test = new Game();
-        game.add(test);
+        thisGame = new Game();
+        game.add(thisGame);
 
         jPoints.setBackground(Color.GREEN);
         jLives.setBackground(Color.RED);
@@ -55,31 +53,11 @@ public class Game extends JPanel{
         System.out.println(jf.getText());
         System.out.println(jPoints.getText());
 
-        jf.addKeyListener(new KeyListener() {
-            String word;
+        jf.addKeyListener(new KeyEventListener(thisGame));
+    }
 
-            @Override
-            public void keyTyped(KeyEvent e) { }
-            @Override
-            public void keyPressed(KeyEvent e) { }
-
-
-            @Override
-            public void keyReleased(KeyEvent e) {
-                getKey(e);
-            }
-            
-            private void getKey(KeyEvent released) {
-                char k = released.getKeyChar();
-                System.out.println(released.getKeyChar());
-                word = test.str;
-
-                System.out.println(word);
-
-                if(word.charAt(0) == k) {System.out.println("First char released");}
-                if(word.charAt(1) == k) {System.out.println("Second char released");}
-            }
-        });
+    public String getCurrentWord(){
+        return currentWord;
     }
 
     @Override
@@ -98,15 +76,15 @@ public class Game extends JPanel{
             System.out.println(jLives.getText());
 
             xPos = -50;
-            yPos = ThreadLocalRandom.current().nextInt(25, 240);
+            yPos = ThreadLocalRandom.current().nextInt(25, 220);
             try {
-                str = wordProvider.declareWord();
+                currentWord = wordProvider.declareWord();
             } catch (DataException e) {
                 e.printStackTrace();
             }
         }
 
-        g2.drawString(str, xPos, yPos);
+        g2.drawString(currentWord, xPos, yPos);
         repaint();
     }
 }
