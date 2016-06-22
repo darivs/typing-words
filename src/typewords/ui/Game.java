@@ -6,6 +6,8 @@ import typewords.data.WordManager;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.io.IOException;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -14,9 +16,10 @@ public class Game extends JPanel{
     JFrame game = new JFrame("Typing-Words");
 
     public int points = 0, lives = 10;
+    public Game test;
 
     JPanel subPanel = new JPanel();
-    JTextField jf = new JTextField("Hi", 42);
+    JTextField jf = new JTextField("Hello", 42);
     JLabel jPoints = new JLabel("Points: " + points);
     JLabel jLives = new JLabel("Lives: " + lives);
 
@@ -32,7 +35,8 @@ public class Game extends JPanel{
     }
 
     public void startGame() throws IOException {
-        game.add(new Game());
+        test = new Game();
+        game.add(test);
 
         jPoints.setBackground(Color.GREEN);
         jLives.setBackground(Color.RED);
@@ -51,7 +55,31 @@ public class Game extends JPanel{
         System.out.println(jf.getText());
         System.out.println(jPoints.getText());
 
-        jf.addKeyListener(new KeyEventListener());
+        jf.addKeyListener(new KeyListener() {
+            String word;
+
+            @Override
+            public void keyTyped(KeyEvent e) { }
+            @Override
+            public void keyPressed(KeyEvent e) { }
+
+
+            @Override
+            public void keyReleased(KeyEvent e) {
+                getKey(e);
+            }
+            
+            private void getKey(KeyEvent released) {
+                char k = released.getKeyChar();
+                System.out.println(released.getKeyChar());
+                word = test.str;
+
+                System.out.println(word);
+
+                if(word.charAt(0) == k) {System.out.println("First char released");}
+                if(word.charAt(1) == k) {System.out.println("Second char released");}
+            }
+        });
     }
 
     @Override
