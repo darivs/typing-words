@@ -4,7 +4,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class KeyEventListener implements KeyListener { //no function atm
-    String word;
+    String word, text;
     private GameUI gameUIObj;
 
     public KeyEventListener(GameUI givenObj) {
@@ -28,10 +28,11 @@ public class KeyEventListener implements KeyListener { //no function atm
         System.out.println(released.getKeyChar());
         word = gameUIObj.getCurrentWord();
 
+        /* //check if word get changed and char released
         System.out.println(word);
-
         if(word.charAt(0) == k) {System.out.println("First char released");}
         if(word.charAt(1) ==k) {System.out.println("Second char released");}
-        // currentWord is static - need better solution
+        */
+
     }
 }

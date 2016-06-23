@@ -1,13 +1,9 @@
 package typewords.ui;// Created by Darius on 22.06.2016.
 
-import typewords.data.DataException;
-import typewords.data.WordInterface;
-
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Game {
 
-    private WordInterface wordProvider;
     int xPos = -50, yPos = 75, ms = 4;
 
     public int decrementLive(int remainingLives) {
@@ -19,7 +15,12 @@ public class Game {
         return remainingLives;
     }
 
-    public void collapsed(){
+    public int addPoints(int actualPoints) {
+        System.out.println("Points: " + actualPoints);
+        return actualPoints++;
+    }
+
+    public void wordCollapsed(){
         resetPosition();
     }
 
@@ -36,15 +37,17 @@ public class Game {
         return yPos;
     }
 
-    public String getNewWord(String currentWord){
-        try { currentWord = wordProvider.declareWord(); }
-        catch (DataException e) { e.printStackTrace(); }
-
-        return currentWord;
-    }
-
-    public void resetPosition(){
+    private void resetPosition(){
         xPos = -50;
         yPos = ThreadLocalRandom.current().nextInt(25, 220);
+
     }
+
+    public boolean checkIfCollided(int width){
+        if (getPositionX() >= width) { return true; } else { return false; }
+    }
+
+    //private String getNewWord(String actualWord) throws DataException {
+    //    return actualWord = wordProvider.declareWord();
+    //}
 }

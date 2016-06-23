@@ -22,12 +22,16 @@ public class Menue extends JPanel {
         menue.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         menue.setSize(100, 117);
         menue.add(panel);
+
         panel.add(btStart);
         panel.add(btList);
         panel.add(btExit);
+
         panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));
+        //menue.getContentPane().add(BorderLayout.PAGE_END, panel);
 
         btStart.addActionListener(new StartGame());
+        btList.addActionListener(new LoadList());
         btExit.addActionListener(new ExitGame());
     }
 
@@ -41,6 +45,12 @@ public class Menue extends JPanel {
     class ExitGame implements ActionListener {
         public void actionPerformed (ActionEvent e) {
             new Main().exit();
+        }
+    }
+
+    class LoadList implements ActionListener {
+        public void actionPerformed (ActionEvent e) {
+            JOptionPane.showMessageDialog(null, "No highscore list available.");
         }
     }
 }
