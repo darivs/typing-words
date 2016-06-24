@@ -6,26 +6,28 @@ import java.io.IOException;
 
 public class GameUI extends JPanel {
 
-    JFrame game = new JFrame("Typing-Words");
+    private static final int TEXTFIELD_WIDTH = 42;
+    private JFrame frame = new JFrame("Typing-Words");
 
-    public int points, lives;
-    private Game thisGame = new Game();
+    private int points, lives;
+    private Game game = new Game();
 
     JPanel subPanel = new JPanel();
-    JTextField textBox = new JTextField("", 42);
+    JTextField textBox = new JTextField("", TEXTFIELD_WIDTH);
     JLabel jPoints, jLives;
 
     public String currentWord = "boo";
 
     public GameUI() {
-        game.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        game.setPreferredSize(new Dimension(600,300));
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame.setPreferredSize(new Dimension(600,300));
+        lives = 10;
     }
 
     public void startGame() throws IOException {
-        game.add(this);
-        jPoints = new JLabel("Points: 0");
-        jLives = new JLabel("Lives: 10");
+        frame.add(this);
+        jPoints = new JLabel("Points: " + points);
+        jLives = new JLabel("Lives: " + lives);
 
         jPoints.setBackground(Color.GREEN);
         jLives.setBackground(Color.RED);
@@ -36,10 +38,10 @@ public class GameUI extends JPanel {
         subPanel.add(jPoints, 1);
         subPanel.add(jLives, 2);
         subPanel.setBorder(BorderFactory.createLineBorder(Color.black));
-        game.getContentPane().add(BorderLayout.PAGE_END, subPanel);
+        frame.getContentPane().add(BorderLayout.PAGE_END, subPanel);
 
-        game.pack();
-        game.setVisible(true);
+        frame.pack();
+        frame.setVisible(true);
 
         System.out.println(textBox.getText());      //always the same (?)
         System.out.println(jPoints.getText());
@@ -59,12 +61,12 @@ public class GameUI extends JPanel {
 
         g2.setFont(new Font("Times Roman", Font.PLAIN, 18));
 
-        thisGame.moveWord();
-        currentWord = thisGame.checkIfCollided(this.getWidth(), textBox, currentWord, points, lives, jPoints, jLives);
-        points = thisGame.getNewPoints();
-        lives = thisGame.getNewLives();
+        game.moveWord();
+        currentWord = game.checkIfCollided(this.getWidth(), textBox, currentWord, points, lives, jPoints, jLives);
+        points = game.getNewPoints();
+        lives = game.getNewLives();
 
-        g2.drawString(currentWord, thisGame.getPositionX(), thisGame.getPositionY());
+        g2.drawString(currentWord, game.getPositionX(), game.getPositionY());
         repaint();
     }
 }
