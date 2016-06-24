@@ -1,40 +1,31 @@
 package typewords.ui;// Created by Darius on 20.06.2016.
 
-import typewords.data.DataException;
-import typewords.data.WordInterface;
-import typewords.data.WordManager;
-
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
 
-public class GameUI extends JPanel{
+public class GameUI extends JPanel {
 
     JFrame game = new JFrame("Typing-Words");
 
-    public int points = 0, lives = 10;
-    public GameUI thisGameUI;
+    public int points, lives;
     private Game thisGame = new Game();
-    private boolean collided = false;
 
     JPanel subPanel = new JPanel();
-    JTextField textBox = new JTextField("test", 42);
-    JLabel jPoints = new JLabel("Points: " + points);
-    JLabel jLives = new JLabel("Lives: " + lives);
+    JTextField textBox = new JTextField("", 42);
+    JLabel jPoints, jLives;
 
     public String currentWord = "boo";
 
-    private WordInterface wordProvider;
-
     public GameUI() {
-        wordProvider = new WordManager();
         game.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         game.setPreferredSize(new Dimension(600,300));
     }
 
     public void startGame() throws IOException {
-        thisGameUI = new GameUI();
-        game.add(thisGameUI);
+        game.add(this);
+        jPoints = new JLabel("Points: 0");
+        jLives = new JLabel("Lives: 10");
 
         jPoints.setBackground(Color.GREEN);
         jLives.setBackground(Color.RED);
@@ -53,7 +44,7 @@ public class GameUI extends JPanel{
         System.out.println(textBox.getText());      //always the same (?)
         System.out.println(jPoints.getText());
 
-        textBox.addKeyListener(new KeyEventListener(thisGameUI));
+        textBox.addKeyListener(new KeyEventListener(this));
     }
 
     public String getCurrentWord(){
@@ -69,24 +60,9 @@ public class GameUI extends JPanel{
         g2.setFont(new Font("Times Roman", Font.PLAIN, 18));
 
         thisGame.moveWord();
-        collided = thisGame.checkIfCollided(this.getWidth());
-
-        if (collided) {
-            if (textBox.getText().equals(currentWord)) {
-                textBox.setText("");
-                points = thisGame.addPoints(points);
-                System.out.println("Actual points: " + points);
-            } else {
-                try {
-                    currentWord = wordProvider.declareWord();
-                    lives = thisGame.decrementLive(lives);
-                    System.out.println(this.textBox.getText() + " / Lives remaining: " + lives);
-                } catch (DataException e) {
-                    e.printStackTrace();
-                }
-            }
-            thisGame.wordCollapsed();
-        }
+        currentWord = thisGame.checkIfCollided(this.getWidth(), textBox, currentWord, points, lives, jPoints, jLives);
+        points = thisGame.getNewPoints();
+        lives = thisGame.getNewLives();
 
         g2.drawString(currentWord, thisGame.getPositionX(), thisGame.getPositionY());
         repaint();
