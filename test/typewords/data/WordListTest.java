@@ -23,7 +23,7 @@ public class WordListTest {
     }
 
     @Test
-    public void sortListWhenFirstEntryGotFewestCapitals() throws Exception {
+    public void sortList_when_first_entry_got_fewest_capitals() throws Exception {
         testList = Arrays.asList("Johnny;Jon;John");
 
         List<String> tList = wl.declareList();
@@ -32,7 +32,7 @@ public class WordListTest {
     }
 
     @Test
-    public void mapListWhenNotNull() throws Exception {
+    public void mapList_when_not_null() throws Exception {
         testList = Arrays.asList("Johnny;Jon;John");
 
         wl.mapList(wl.declareList());

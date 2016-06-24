@@ -30,21 +30,21 @@ public class WordManagerTest {
     }
 
     @Test
-    public void declareWordWhenItsValid() throws Exception {
-        splitRowAtSimicolonWhenRightValue();
+    public void declareWord_when_its_valid() throws Exception {
+        splitRowAtSimicolon_when_right_value();
 
         assertThat(Arrays.asList(testArray), hasItem(wM.declareWord()));
     }
 
     @Test
-    public void getRandomValueBetweenArrayLength() {
+    public void get_random_value_between_array_length() {
         int r = wM.getRandomInteger(6);
 
         assertThat(r <= 5, is(true));
     }
 
     @Test
-    public void splitRowAtSimicolonWhenRightValue() {
+    public void splitRowAtSimicolon_when_right_value() {
         testArray = wL.splitString(testdata, ";");
 
         assertThat(Arrays.asList(testArray), hasItems("Robb", "Sansa", "Bran"));

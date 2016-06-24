@@ -25,7 +25,7 @@ public class KeyEventListener implements KeyListener { //no function atm
 
     private void getKey(KeyEvent released) {
         char k = released.getKeyChar();
-        System.out.println(released.getKeyChar());
+        //System.out.println(released.getKeyChar());
         word = gameUIObj.getCurrentWord();
 
         /* //check if word get changed and char released

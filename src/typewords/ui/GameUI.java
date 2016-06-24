@@ -1,5 +1,7 @@
 package typewords.ui;// Created by Darius on 20.06.2016.
 
+import typewords.game.GameEngine;
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.IOException;
@@ -9,8 +11,7 @@ public class GameUI extends JPanel {
     private static final int TEXTFIELD_WIDTH = 42;
     private JFrame frame = new JFrame("Typing-Words");
 
-    private int points, lives;
-    private Game game = new Game();
+    private GameEngine gameEngine = new GameEngine();
 
     JPanel subPanel = new JPanel();
     JTextField textBox = new JTextField("", TEXTFIELD_WIDTH);
@@ -21,13 +22,14 @@ public class GameUI extends JPanel {
     public GameUI() {
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setPreferredSize(new Dimension(600,300));
-        lives = 10;
     }
 
     public void startGame() throws IOException {
         frame.add(this);
-        jPoints = new JLabel("Points: " + points);
-        jLives = new JLabel("Lives: " + lives);
+        jPoints = new JLabel();
+        jLives = new JLabel();
+
+        updateLabel();
 
         jPoints.setBackground(Color.GREEN);
         jLives.setBackground(Color.RED);
@@ -52,7 +54,6 @@ public class GameUI extends JPanel {
     public String getCurrentWord(){
         return currentWord;
     }
-    //public String getTextOfField() { return this.textBox.getText(); }
 
     @Override
     public void paintComponent(Graphics g) {
@@ -61,12 +62,21 @@ public class GameUI extends JPanel {
 
         g2.setFont(new Font("Times Roman", Font.PLAIN, 18));
 
-        game.moveWord();
-        currentWord = game.checkIfCollided(this.getWidth(), textBox, currentWord, points, lives, jPoints, jLives);
-        points = game.getNewPoints();
-        lives = game.getNewLives();
+        gameEngine.moveWord();
+        String newWord = gameEngine.checkIfCollided(this.getWidth(), textBox.getText(), currentWord);
+        if(newWord != null) {
+            currentWord = newWord;
+            textBox.setText("");
+        }
 
-        g2.drawString(currentWord, game.getPositionX(), game.getPositionY());
+        updateLabel();
+
+        g2.drawString(currentWord, gameEngine.getPositionX(), gameEngine.getPositionY());
         repaint();
+    }
+
+    public void updateLabel() {
+        jPoints.setText("Points: " + gameEngine.getPoints());
+        jLives.setText("Lives: " + gameEngine.getLives());
     }
 }
