@@ -4,12 +4,13 @@ import typewords.game.GameEngine;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.WindowEvent;
 import java.io.IOException;
 
-public class GameUI extends JPanel {
+public class GamePanel extends JPanel {
 
     private static final int TEXTFIELD_WIDTH = 42;
-    private JFrame frame = new JFrame("Typing-Words");
+    public JFrame frame = new JFrame("Typing-Words");
 
     private GameEngine gameEngine = new GameEngine();
 
@@ -19,7 +20,7 @@ public class GameUI extends JPanel {
 
     public String currentWord = "boo";
 
-    public GameUI() {
+    public GamePanel() {
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setPreferredSize(new Dimension(600,300));
     }
@@ -64,6 +65,7 @@ public class GameUI extends JPanel {
 
         gameEngine.moveWord();
         String newWord = gameEngine.checkIfCollided(this.getWidth(), textBox.getText(), currentWord);
+        
         if(newWord != null) {
             currentWord = newWord;
             textBox.setText("");
@@ -75,8 +77,12 @@ public class GameUI extends JPanel {
         repaint();
     }
 
-    public void updateLabel() {
+    private void updateLabel() {
         jPoints.setText("Points: " + gameEngine.getPoints());
         jLives.setText("Lives: " + gameEngine.getLives());
+    }
+
+    public void endSession() {
+        frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
     }
 }

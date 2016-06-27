@@ -5,10 +5,10 @@ import java.awt.event.KeyListener;
 
 public class KeyEventListener implements KeyListener { //no function atm
     String word, text;
-    private GameUI gameUIObj;
+    private GamePanel gamePanelObj;
 
-    public KeyEventListener(GameUI givenObj) {
-        gameUIObj = givenObj;
+    public KeyEventListener(GamePanel givenObj) {
+        gamePanelObj = givenObj;
     }
 
     @Override
@@ -26,7 +26,7 @@ public class KeyEventListener implements KeyListener { //no function atm
     private void getKey(KeyEvent released) {
         char k = released.getKeyChar();
         //System.out.println(released.getKeyChar());
-        word = gameUIObj.getCurrentWord();
+        word = gamePanelObj.getCurrentWord();
 
         /* //check if word get changed and char released
         System.out.println(word);
