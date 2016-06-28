@@ -9,7 +9,7 @@ import java.io.IOException;
 
 public class GamePanel extends JPanel {
 
-    private static final int TEXTFIELD_WIDTH = 42;
+    private static final int TEXTFIELD_WIDTH = 41;
     public JFrame frame = new JFrame("Typing-Words");
 
     private GameEngine gameEngine = new GameEngine();
@@ -21,7 +21,7 @@ public class GamePanel extends JPanel {
     public String currentWord = "boo";
 
     public GamePanel() {
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         frame.setPreferredSize(new Dimension(600,300));
     }
 

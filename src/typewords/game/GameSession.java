@@ -3,7 +3,7 @@ package typewords.game;// Created by Darius on 24.06.2016.
 public class GameSession {
 
     private int lives;
-    private int points = 0;
+    private int points = 10;
 
     public GameSession(int initialLives) {
         assert initialLives >= 0;
@@ -28,5 +28,10 @@ public class GameSession {
 
     public int getPoints() {
         return points;
+    }
+
+    public float getFaster(float factor) {
+        factor *= 0.9925f;
+        return factor;
     }
 }

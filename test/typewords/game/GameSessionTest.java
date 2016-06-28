@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 // Created by Darius on 24.06.2016.
 public class GameSessionTest {
@@ -37,5 +38,13 @@ public class GameSessionTest {
         GameSession session = new GameSession(1);
         session.incrementPoints();
         assertThat(1, equalTo(session.getPoints()));
+    }
+
+    @Test
+    public void faster_velocity() {
+        float value = 1;
+        GameSession session = new GameSession(1);
+        value = session.getFaster(value);
+        assertTrue(value > 0);
     }
 }
