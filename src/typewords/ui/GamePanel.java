@@ -63,9 +63,9 @@ public class GamePanel extends JPanel {
 
         g2.setFont(new Font("Times Roman", Font.PLAIN, 18));
 
-        gameEngine.moveWord();
+        gameEngine.moveWord(currentWord.length());
         String newWord = gameEngine.checkIfCollided(this.getWidth(), textBox.getText(), currentWord);
-        
+
         if(newWord != null) {
             currentWord = newWord;
             textBox.setText("");

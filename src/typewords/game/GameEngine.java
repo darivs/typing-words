@@ -12,20 +12,22 @@ public class GameEngine {
 
     private GameSession session = new GameSession(10);
     private WordInterface wordProvider;
-    private long millis;
+    private long millis, wordLength;
+    private float factor = 1;
 
     public GameEngine(){
         wordProvider = new WordManager();
     }
-
     int xPos = -50, yPos = 75;
-    float ms = 4f;
-    String newWord = null;
 
 
-    public void moveWord() {
+    public void moveWord(int length) {
+        wordLength = length;
+
+        if (wordLength == 3) wordLength++;
+        millis = (long) ((wordLength - 1) * factor);
+
         try {
-            millis = (long) ms;
             Thread.sleep(millis);
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -48,15 +50,14 @@ public class GameEngine {
     }
 
     public String checkIfCollided(int width, String data, String wordNow) {
+        String newWord = null;
 
         if (xPos >= width) {
             getFaster();
 
             if (data.equals(wordNow)) {
                 session.incrementPoints();
-
-                //ms *= 0.95;  --->  Thread.sleep(ONLY INTEGER)
-                System.out.println("correct input - points: " + getPoints() + " | speed:" + millis);
+                System.out.println("correct input | points: " + getPoints() + " | speed:" + millis + " | factor " + factor);
             } else {
                 GameState state = session.decrementLives();
 
@@ -64,7 +65,7 @@ public class GameEngine {
                     case LIVES_EXCEEDED:
                         endSession(); break;
                     case RUNNING:
-                        System.out.println("false input: " + data + " - lives remaining: " + getLives() + " | speed:" + millis); break;
+                        System.out.println("false input: " + data + " | lives remaining: " + getLives() + " | speed:" + millis + " | factor " + factor); break;
                     case ABORTED:
                         System.exit(0); break;
                     default: break;
@@ -97,8 +98,9 @@ public class GameEngine {
     }
 
     private void getFaster() {
-
-        ms *= 0.5;
+        if (wordLength > 3) {
+            factor *= 0.9925f;
+        }
     }
 }
 
